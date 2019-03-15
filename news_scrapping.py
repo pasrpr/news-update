@@ -24,10 +24,14 @@ def main():
         sys.exit(1)
 
     events_divs = soup.findAll('a',{'class':'DY5T1d'})
-    news = set()
+    #event_divs.find('a').get('href')
+    news = {}
     for i in range(5):
-        news.add(events_divs[i].text.strip())
+        news[events_divs[i].text.strip()] = events_divs[i]['href']
+        #print(events_divs[i]['href'])
+    print(news)
     return news
 
 if __name__ == '__main__':
     events = main()
+    print(events)
