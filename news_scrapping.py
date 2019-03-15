@@ -26,10 +26,8 @@ def main():
     events_divs = soup.findAll('a',{'class':'DY5T1d'})
     news = set()
     for i in range(5):
-        #print(events_divs[i].text.strip())
         news.add(events_divs[i].text.strip())
     return news
 
 if __name__ == '__main__':
     events = main()
-    #print(events)
