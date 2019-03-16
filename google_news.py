@@ -12,7 +12,7 @@ def soupify_event_page(url='https://news.google.com/?hl=en-US&gl=US&ceid=US:en')
 
     return soup
 
-def main():
+def news():
     soup = soupify_event_page()
     if not soup:
         sys.exit(1)
@@ -22,6 +22,3 @@ def main():
     for i in range(10):
         news.append(events_divs[i].text.strip() + ':' + events_divs[i]['href'])
     return news
-
-if __name__ == '__main__':
-    news = main()
