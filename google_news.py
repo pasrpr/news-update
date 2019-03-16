@@ -1,12 +1,6 @@
 import bs4
-import html
-import json
-import re
 import requests
 import sys
-import unicodedata
-import pprint
-
 
 def soupify_event_page(url='https://news.google.com/?hl=en-US&gl=US&ceid=US:en'):
     try:
@@ -24,14 +18,10 @@ def main():
         sys.exit(1)
 
     events_divs = soup.findAll('a',{'class':'DY5T1d'})
-    #event_divs.find('a').get('href')
-    news = {}
+    news = []
     for i in range(10):
-        news[events_divs[i].text.strip()] = events_divs[i]['href']
-        #print(events_divs[i]['href'])
-    print(news)
+        news.append(events_divs[i].text.strip() + ':' + events_divs[i]['href'])
     return news
 
 if __name__ == '__main__':
-    events = main()
-    print(events)
+    news = main()
