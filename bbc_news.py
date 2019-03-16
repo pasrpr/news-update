@@ -8,27 +8,24 @@ except KeyError:
     #if it's not an env var, then we might be testing
     API_TOKEN = input("Enter your API Token Key:")
 
-def soupify_event_page(url='https://newsapi.org/v2/top-headlines?'
+def get_content(url='https://newsapi.org/v2/top-headlines?'
        'sources=bbc-news&'
-       'apiKey=API_TOKEN'):
+       'apiKey='+API_TOKEN):
     try:
-        r = requests.get(url).json()
+        news_json = requests.get(url).json()
     except:
         return
-
-    org_json = requests.get(url).json()
-    return org_json
+    return news_json
 
 def main():
-    soup = soupify_event_page()
-    if not soup:
+    news_data = get_content()
+    if not news_data:
         sys.exit(1)
 
-    news=[]
-    for a in soup['articles']:
-        news.append(a['title']+' : '+a['url'])
+    news = []
+    for article in news_data['articles']:
+        news.append(article['title'] + ' : ' + article['url'])
     return news
 
 if __name__ == '__main__':
-    events = main()
-    print(events)
+    news = main()
