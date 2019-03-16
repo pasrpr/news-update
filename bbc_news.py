@@ -17,7 +17,7 @@ def get_content(url='https://newsapi.org/v2/top-headlines?'
         return
     return news_json
 
-def main():
+def news():
     news_data = get_content()
     if not news_data:
         sys.exit(1)
@@ -26,6 +26,3 @@ def main():
     for article in news_data['articles']:
         news.append(article['title'] + ' : ' + article['url'])
     return news
-
-if __name__ == '__main__':
-    news = main()
