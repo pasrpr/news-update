@@ -2,6 +2,8 @@ import os
 import requests
 import sys
 
+#   API_TOKEN = 'd092cf0e3c8a40cb8d197d112fcc0aaa'
+
 try:
     API_TOKEN = os.environ['API_TOKEN']
 except KeyError:
@@ -15,7 +17,7 @@ def get_content(url='https://newsapi.org/v2/top-headlines?sources=cnn&apiKey='+A
         return
     return news_json
 
-def main():
+def news():
     news_data = get_content()
     if not news_data:
         sys.exit(1)
@@ -24,6 +26,3 @@ def main():
     for article in news_data['articles']:
         news.append(article['title'] + ' : ' + article['url'])
     return news
-
-if __name__ == '__main__':
-    news = main()
