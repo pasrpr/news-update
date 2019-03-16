@@ -26,7 +26,7 @@ def main():
     events_divs = soup.findAll('a',{'class':'DY5T1d'})
     #event_divs.find('a').get('href')
     news = {}
-    for i in range(5):
+    for i in range(10):
         news[events_divs[i].text.strip()] = events_divs[i]['href']
         #print(events_divs[i]['href'])
     print(news)
