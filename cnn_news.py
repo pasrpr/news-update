@@ -2,8 +2,6 @@ import os
 import requests
 import sys
 
-#   API_TOKEN = 'd092cf0e3c8a40cb8d197d112fcc0aaa'
-
 try:
     API_TOKEN = os.environ['API_TOKEN']
 except KeyError:
