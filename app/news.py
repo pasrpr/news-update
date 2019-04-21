@@ -3,8 +3,11 @@ from bbc_news import news as bbc_news
 from cnn_news import news as cnn_news
 
 def main():
-    news = google_news()+bbc_news()+cnn_news()
+    news = google_news().copy()
+    news.update(bbc_news())
+    news.update(cnn_news())
     return news
 
 if __name__ == '__main__':
     news = main()
+    print(news)
