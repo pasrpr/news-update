@@ -19,4 +19,4 @@ def result():
     news = google_news().copy()
     news.update(bbc_news())
     news.update(cnn_news())
-    return render_template('result.html', title='News', news = news.keys(), urls = news.values())
+    return render_template('result.html', title='News', news = list(news.keys()), urls = list(news.values()))
