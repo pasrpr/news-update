@@ -18,9 +18,7 @@ def news():
         sys.exit(1)
 
     events_divs = soup.findAll('a',{'class':'DY5T1d'})
-    #news = []
     google_news = {}
     for i in range(10):
         google_news[events_divs[i].text.strip()] = "https://news.google.com/"+events_divs[i]['href'].strip('./')
-        #news.append(events_divs[i].text.strip() + ':' + events_divs[i]['href'])
     return google_news

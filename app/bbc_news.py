@@ -2,8 +2,6 @@ import os
 import requests
 import sys
 
-#   API_TOKEN = 'd092cf0e3c8a40cb8d197d112fcc0aaa'
-
 try:
     API_TOKEN = os.environ['API_TOKEN']
 except KeyError:
@@ -24,9 +22,7 @@ def news():
     if not news_data:
         sys.exit(1)
 
-    #news = []
     bbc_news = {}
     for article in news_data['articles']:
         bbc_news[article['title']] = article['url']
-        #news.append(article['title'] + ' : ' + article['url'])
     return bbc_news
