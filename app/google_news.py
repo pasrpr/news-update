@@ -21,6 +21,6 @@ def news():
     #news = []
     google_news = {}
     for i in range(10):
-        google_news[events_divs[i].text.strip()] = events_divs[i]['href']
+        google_news[events_divs[i].text.strip()] = "https://news.google.com/"+events_divs[i]['href'].strip('./')
         #news.append(events_divs[i].text.strip() + ':' + events_divs[i]['href'])
     return google_news
